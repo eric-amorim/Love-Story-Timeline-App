@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white m-0 p-0 overflow-hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Ensures that the main container occupies 100% of the screen height (dvh is better than vh for mobile) */
+  #root {
+    @apply w-screen h-[100dvh] overflow-hidden;
+  }
+}
+
+@layer utilities {
+  /* Remove text selection to give "app" feel */
+  .noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Safari */
+    user-select: none;          /* Non-prefixed version */
+  }
+  
+  /* Adjustment so that the scrollbar does not appear in any case */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Visual optimization for YouTube (maintains aspect ratio even on narrow screens) */
+iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
